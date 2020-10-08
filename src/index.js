@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { AppProvider } from './state/AppContext';
+import { AlertProvider } from './state/AlertContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AlertProvider>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </AlertProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
