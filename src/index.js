@@ -4,15 +4,12 @@ import './styles/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { AppProvider } from './state/AppContext';
-import { AlertProvider } from './state/AlertContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AlertProvider>
-      <AppProvider>
-        <App />
-      </AppProvider>
-    </AlertProvider>
+    <AppProvider>
+      <App />
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

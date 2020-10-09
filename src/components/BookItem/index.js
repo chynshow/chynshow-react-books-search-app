@@ -14,7 +14,7 @@ const BookItem = ({
       <img
         className='c-book-item__img'
         src={thumbnail ? thumbnail : smallThumbnail}
-        alt='Book cover'
+        alt='Book cover not found'
       />
       <h3 className='c-book-item__title'>{title}</h3>
       <p className='c-book-item__description'>

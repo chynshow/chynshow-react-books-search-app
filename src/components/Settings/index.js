@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import Input from '../Input';
 import { AppContext } from '../../state/AppContext';
-import { AlertContext } from '../../state/AlertContext';
+import PropTypes from 'prop-types';
 
 const Settings = ({ setShowSettings }) => {
   // Get data from global app state
-  const { showAlert } = useContext(AlertContext);
+  const { showAlert } = useContext(AppContext);
   const { maxResults, setMaxResults } = useContext(AppContext);
   // Use local state for form handling
   const [value, setValue] = useState(maxResults);
@@ -45,6 +45,10 @@ const Settings = ({ setShowSettings }) => {
       </form>
     </div>
   );
+};
+
+Settings.propTypes = {
+  setShowSettings: PropTypes.func.isRequired,
 };
 
 export default Settings;

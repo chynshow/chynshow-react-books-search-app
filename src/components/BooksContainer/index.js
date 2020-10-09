@@ -1,9 +1,10 @@
 import React, { useCallback, useContext, useRef } from 'react';
 import { AppContext } from '../../state/AppContext';
 import BookItem from '../BookItem';
-import ThSVG from './../SVG/ThSVG';
-import ThListSVG from './../SVG/ThListSVG';
 import Loader from './../Loader';
+import ViewTypeToggler from '../ViewTypeToggler';
+import ScrollToTop from 'react-scroll-up';
+import ChevronUpSVG from './../SVG/ChevronUpSVG';
 
 const BooksContainer = () => {
   const {
@@ -29,7 +30,8 @@ const BooksContainer = () => {
           entries[0].isIntersecting &&
           startIndex + maxResults < totalResults
         ) {
-          setStartIndex();
+          console.log(startIndex + maxResults, totalResults);
+          setStartIndex(startIndex + maxResults);
           fetchBooks(searchParams, startIndex, maxResults);
         }
       });
@@ -37,72 +39,58 @@ const BooksContainer = () => {
     },
     [
       loading,
-      searchParams,
       startIndex,
       maxResults,
       totalResults,
       setStartIndex,
       fetchBooks,
+      searchParams,
     ]
   );
 
   return (
     <ul className='l-book-container'>
-      {books.length > 3 && <ViewType />}
+      {books.length > 3 && <ViewTypeToggler />}
       {
         // eslint-disable-next-line array-callback-return
-        books.map(({ volumeInfo, id }, idx) => {
-          if (volumeInfo && volumeInfo.imageLinks) {
-            if (books.length === idx + 1) {
-              return (
-                <BookItem
-                  title={volumeInfo.title}
-                  imageLinks={volumeInfo.imageLinks}
-                  description={volumeInfo.description}
-                  key={id}
-                  reference={lastBookElRef}
-                  viewType={viewType}
-                  infoLink={volumeInfo.infoLink}
-                />
-              );
-            } else {
-              return (
-                <BookItem
-                  key={id}
-                  title={volumeInfo.title}
-                  imageLinks={volumeInfo.imageLinks}
-                  description={volumeInfo.description}
-                  viewType={viewType}
-                  infoLink={volumeInfo.infoLink}
-                />
-              );
-            }
+        books.map((b, idx) => {
+          const imageLinks = b.volumeInfo.imageLinks
+            ? b.volumeInfo.imageLinks
+            : '';
+          if (books.length === idx + 1) {
+            return (
+              <BookItem
+                title={b.volumeInfo.title}
+                imageLinks={imageLinks}
+                description={b.volumeInfo.description}
+                key={b.id}
+                reference={lastBookElRef}
+                viewType={viewType}
+                infoLink={b.volumeInfo.infoLink}
+              />
+            );
+          } else {
+            return (
+              <BookItem
+                key={b.id}
+                title={b.volumeInfo.title}
+                imageLinks={imageLinks}
+                description={b.volumeInfo.description}
+                viewType={viewType}
+                infoLink={b.volumeInfo.infoLink}
+              />
+            );
           }
         })
       }
       {loading && <Loader />}
+      <ScrollToTop showUnder={160}>
+        <button className='c-btn c-btn--primary c-scroll-btn'>
+          <ChevronUpSVG />
+        </button>
+      </ScrollToTop>
     </ul>
   );
 };
 
 export default BooksContainer;
-
-const ViewType = () => {
-  const { setView } = useContext(AppContext);
-  return (
-    <div className='c-view-type'>
-      <button
-        className='c-btn c-btn--primary c-view-type__btn'
-        onClick={() => setView('one')}
-      >
-        <ThListSVG />
-      </button>
-      <button
-        className='c-btn c-btn--primary c-view-type__btn'
-        onClick={() => setView('four')}
-      >
-        <ThSVG />
-      </button>
-    </div>
-  );
-};

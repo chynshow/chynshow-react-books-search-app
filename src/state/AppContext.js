@@ -1,6 +1,5 @@
 import Axios from 'axios';
-import React, { createContext, useContext, useReducer } from 'react';
-import { AlertContext } from './AlertContext';
+import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 import {
   FETCH_BOOKS_REQUEST,
@@ -11,6 +10,8 @@ import {
   SET_SEARCH_PARAMS,
   CLEAR_STATE,
   SET_VIEW,
+  HIDE_ALERT,
+  SHOW_ALERT,
 } from './AppReducer';
 
 const initialState = {
@@ -20,6 +21,8 @@ const initialState = {
   loading: false,
   maxResults: 10,
   viewType: 'four',
+  alertMessage: null,
+  alertCondition: null,
   searchParams: {
     query: '',
     inauthor: '',
@@ -61,7 +64,21 @@ export const AppContext = createContext(initialState);
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  const { showAlert } = useContext(AlertContext);
+
+  const showAlert = (alertMessage, alertCondition, time = 3000) => {
+    dispatch({
+      type: SHOW_ALERT,
+      payload: {
+        alertMessage,
+        alertCondition,
+      },
+    });
+    setTimeout(() => {
+      dispatch({
+        type: HIDE_ALERT,
+      });
+    }, time);
+  };
 
   // Get data from server
   const fetchBooks = async (
@@ -81,7 +98,6 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: FETCH_BOOKS_REQUEST });
     try {
       const { data } = await Axios({ method: 'GET', url });
-      console.log(data);
       if (data.totalItems > 0 && data.items && data.items.length) {
         dispatch({
           type: FETCH_BOOKS_SUCCESS,
@@ -111,7 +127,9 @@ export const AppProvider = ({ children }) => {
 
   const setMaxResults = (maxResults) =>
     dispatch({ type: SET_MAX_RESULTS, payload: maxResults });
-  const setStartIndex = () => dispatch({ type: SET_START_INDEX });
+
+  const setStartIndex = (startIndex) =>
+    dispatch({ type: SET_START_INDEX, payload: startIndex });
 
   const serSearchParams = (searchParams) =>
     dispatch({ type: SET_SEARCH_PARAMS, payload: searchParams });
@@ -136,6 +154,9 @@ export const AppProvider = ({ children }) => {
         viewType: state.viewType,
         loading: state.loading,
         totalResults: state.totalResults,
+        showAlert,
+        alertMessage: state.alertMessage,
+        alertCondition: state.alertCondition,
       }}
     >
       {children}

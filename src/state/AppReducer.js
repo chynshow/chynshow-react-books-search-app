@@ -8,6 +8,8 @@ export const SET_START_INDEX = 'SET_START_INDEX';
 export const SET_SEARCH_PARAMS = 'SET_SEARCH_PARAMS';
 export const CLEAR_STATE = 'CLEAR_STATE';
 export const SET_VIEW = 'SET_VIEW';
+export const SHOW_ALERT = 'SHOW_ALERT';
+export const HIDE_ALERT = 'HIDE_ALERT';
 
 export default (state, { type, payload }) => {
   switch (type) {
@@ -39,7 +41,7 @@ export default (state, { type, payload }) => {
     case SET_START_INDEX:
       return {
         ...state,
-        startIndex: state.startIndex + state.maxResults,
+        startIndex: payload,
       };
 
     case SET_SEARCH_PARAMS:
@@ -67,6 +69,19 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         viewType: payload,
+      };
+    case SHOW_ALERT:
+      return {
+        ...state,
+        alertCondition: payload.alertCondition,
+        alertMessage: payload.alertMessage,
+      };
+
+    case HIDE_ALERT:
+      return {
+        ...state,
+        alertMessage: null,
+        alertCondition: null,
       };
     default:
       return state;

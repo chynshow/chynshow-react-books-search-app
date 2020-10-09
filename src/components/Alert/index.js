@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AlertContext } from '../../state/AlertContext';
+import { AppContext } from '../../state/AppContext';
 import CheckCircleSVG from './../SVG/CheckCircleSVG';
 import ExclamationSVG from './../SVG/ExclamationSVG';
 
@@ -17,14 +17,14 @@ const renderSVG = (condition) => {
 
 const Alert = () => {
   // Get data from global app state
-  const { message, condition } = useContext(AlertContext);
+  const { alertMessage, alertCondition } = useContext(AppContext);
 
   return (
     <>
-      {message && (
-        <div className={`c-alert c-alert--${condition}`}>
-          {renderSVG(condition)}
-          {message}
+      {alertMessage && (
+        <div className={`c-alert c-alert--${alertCondition}`}>
+          {renderSVG(alertCondition)}
+          {alertMessage}
         </div>
       )}
     </>
