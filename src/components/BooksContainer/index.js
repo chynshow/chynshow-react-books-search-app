@@ -1,7 +1,9 @@
 import React, { useCallback, useContext, useRef } from 'react';
 import { AppContext } from '../../state/AppContext';
 import BookItem from '../BookItem';
-import TotalResult from '../TotalResult';
+import ThSVG from './../SVG/ThSVG';
+import ThListSVG from './../SVG/ThListSVG';
+import Loader from './../Loader';
 
 const BooksContainer = () => {
   const {
@@ -13,6 +15,7 @@ const BooksContainer = () => {
     fetchBooks,
     searchParams,
     setStartIndex,
+    viewType,
   } = useContext(AppContext);
 
   // Load new items based on position of last item in the list and "totalResults" parameter
@@ -45,7 +48,7 @@ const BooksContainer = () => {
 
   return (
     <ul className='l-book-container'>
-      <TotalResult />
+      {books.length > 3 && <ViewType />}
       {
         // eslint-disable-next-line array-callback-return
         books.map(({ volumeInfo, id }, idx) => {
@@ -58,6 +61,8 @@ const BooksContainer = () => {
                   description={volumeInfo.description}
                   key={id}
                   reference={lastBookElRef}
+                  viewType={viewType}
+                  infoLink={volumeInfo.infoLink}
                 />
               );
             } else {
@@ -67,15 +72,37 @@ const BooksContainer = () => {
                   title={volumeInfo.title}
                   imageLinks={volumeInfo.imageLinks}
                   description={volumeInfo.description}
+                  viewType={viewType}
+                  infoLink={volumeInfo.infoLink}
                 />
               );
             }
           }
         })
       }
-      {loading && <div className='c-loader'>Loading...</div>}
+      {loading && <Loader />}
     </ul>
   );
 };
 
 export default BooksContainer;
+
+const ViewType = () => {
+  const { setView } = useContext(AppContext);
+  return (
+    <div className='c-view-type'>
+      <button
+        className='c-btn c-btn--primary c-view-type__btn'
+        onClick={() => setView('one')}
+      >
+        <ThListSVG />
+      </button>
+      <button
+        className='c-btn c-btn--primary c-view-type__btn'
+        onClick={() => setView('four')}
+      >
+        <ThSVG />
+      </button>
+    </div>
+  );
+};

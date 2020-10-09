@@ -6,7 +6,7 @@ export default (state, { type, payload }) => {
     case SHOW_ALERT:
       return {
         ...state,
-        style: payload.style,
+        condition: payload.condition,
         message: payload.message,
       };
 
@@ -14,7 +14,7 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         message: null,
-        style: null,
+        condition: null,
       };
     default:
       return state;

@@ -7,6 +7,7 @@ export const SET_MAX_RESULTS = 'SET_MAX_RESULTS';
 export const SET_START_INDEX = 'SET_START_INDEX';
 export const SET_SEARCH_PARAMS = 'SET_SEARCH_PARAMS';
 export const CLEAR_STATE = 'CLEAR_STATE';
+export const SET_VIEW = 'SET_VIEW';
 
 export default (state, { type, payload }) => {
   switch (type) {
@@ -60,6 +61,12 @@ export default (state, { type, payload }) => {
           inpublisher: '',
           isbn: '',
         },
+      };
+
+    case SET_VIEW:
+      return {
+        ...state,
+        viewType: payload,
       };
     default:
       return state;

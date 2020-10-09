@@ -8,17 +8,21 @@ const Input = ({
   onChange,
   className,
   value,
+  label,
   ...rest
 }) => (
-  <input
-    className={`c-input ${className ? className : ''}`}
-    name={name}
-    type={type}
-    placeholder={placeholder}
-    onChange={onChange}
-    value={value}
-    {...rest}
-  />
+  <label>
+    {label}
+    <input
+      className={`c-input ${className ? className : ''}`}
+      name={name}
+      type={type}
+      placeholder={placeholder}
+      onChange={onChange}
+      value={value}
+      {...rest}
+    />
+  </label>
 );
 
 Input.propTypes = {
@@ -26,6 +30,7 @@ Input.propTypes = {
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+  label: PropTypes.string,
 };
 
 export default Input;

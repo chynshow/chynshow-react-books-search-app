@@ -2,14 +2,14 @@ import React from 'react';
 import Alert from './components/Alert';
 import BooksContainer from './components/BooksContainer';
 import SearchBar from './components/SearchBar';
-import Settings from './components/Settings';
+import TotalResult from './components/TotalResult';
 
 const App = () => {
   return (
-    <div>
+    <div className='l-app-container'>
       <Alert />
-      <Settings />
       <SearchBar />
+      <TotalResult />
       <BooksContainer />
     </div>
   );

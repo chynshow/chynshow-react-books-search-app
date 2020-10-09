@@ -4,7 +4,7 @@ import { SHOW_ALERT, HIDE_ALERT } from './AlertReducer';
 
 const initialState = {
   message: null,
-  style: null,
+  condition: null,
 };
 
 export const AlertContext = createContext(initialState);
@@ -12,12 +12,12 @@ export const AlertContext = createContext(initialState);
 export const AlertProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AlertReducer, initialState);
 
-  const showAlert = (message, style, time = 3000) => {
+  const showAlert = (message, condition, time = 3000) => {
     dispatch({
       type: SHOW_ALERT,
       payload: {
         message,
-        style,
+        condition,
       },
     });
     setTimeout(() => {
@@ -29,7 +29,7 @@ export const AlertProvider = ({ children }) => {
 
   return (
     <AlertContext.Provider
-      value={{ showAlert, message: state.message, style: state.style }}
+      value={{ showAlert, message: state.message, condition: state.condition }}
     >
       {children}
     </AlertContext.Provider>

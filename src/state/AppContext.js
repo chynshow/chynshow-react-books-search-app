@@ -10,6 +10,7 @@ import {
   SET_START_INDEX,
   SET_SEARCH_PARAMS,
   CLEAR_STATE,
+  SET_VIEW,
 } from './AppReducer';
 
 const initialState = {
@@ -18,7 +19,7 @@ const initialState = {
   startIndex: 0,
   loading: false,
   maxResults: 10,
-
+  viewType: 'four',
   searchParams: {
     query: '',
     inauthor: '',
@@ -117,11 +118,13 @@ export const AppProvider = ({ children }) => {
 
   const clearState = () => dispatch({ type: CLEAR_STATE });
 
+  const setView = (viewType) => dispatch({ type: SET_VIEW, payload: viewType });
+
   return (
     <AppContext.Provider
       value={{
         fetchBooks,
-
+        setView,
         setMaxResults,
         setStartIndex,
         serSearchParams,
@@ -130,7 +133,7 @@ export const AppProvider = ({ children }) => {
         maxResults: state.maxResults,
         searchParams: state.searchParams,
         books: state.books,
-
+        viewType: state.viewType,
         loading: state.loading,
         totalResults: state.totalResults,
       }}
