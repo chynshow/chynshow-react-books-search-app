@@ -1,5 +1,5 @@
 import React from 'react';
-import Overlay from './../Overlay';
+import Overlay from '../Overlay';
 import SettingsContainer from '../SettingsContainer';
 import MainTitle from '../MainTitle';
 import SearchForm from '../SearchForm';

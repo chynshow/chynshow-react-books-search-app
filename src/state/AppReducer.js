@@ -22,7 +22,7 @@ export default (state, { type, payload }) => {
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
-        books: removeDuplicates([...state.books, ...payload.books]),
+        books: removeDuplicates([...state.books, ...payload.books], 'id'),
         loading: false,
         totalResults: payload.totalResults,
       };

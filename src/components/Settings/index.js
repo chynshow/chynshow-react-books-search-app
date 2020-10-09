@@ -12,6 +12,13 @@ const Settings = ({ setShowSettings }) => {
   // Handle onSubmit event
   const handlerOnSubmit = (e) => {
     e.preventDefault();
+    // Validation
+    if (value > 40 || value < 1)
+      return showAlert(
+        'Invalid input! Maximum allowable value is 40, minimum is 1!',
+        'warning',
+        7000
+      );
     setMaxResults(value);
     showAlert('Applied new search parameter value!', 'success', 5000);
     setShowSettings(false);

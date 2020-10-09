@@ -1,7 +1,7 @@
-export default (arr) => [
+export default (arr, val) => [
   ...new Map(
     arr.map((item) => {
-      return [item.id, item];
+      return [item[val], item];
     })
   ).values(),
 ];
