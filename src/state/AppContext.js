@@ -14,7 +14,7 @@ import {
   SHOW_ALERT,
 } from './AppReducer';
 
-const initialState = {
+export const initialState = {
   books: [],
   totalResults: null,
   startIndex: 0,

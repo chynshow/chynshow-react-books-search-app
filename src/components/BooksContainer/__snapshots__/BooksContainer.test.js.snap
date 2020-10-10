@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders BooksContainer component 1`] = `
+<BooksContainer>
+  <ul
+    className="l-book-container"
+  >
+    <ScrollUp
+      duration={250}
+      easing="easeOutCubic"
+      showUnder={160}
+      style={
+        Object {
+          "bottom": 50,
+          "cursor": "pointer",
+          "position": "fixed",
+          "right": 30,
+          "transitionDelay": "0s",
+          "transitionDuration": "0.2s",
+          "transitionTimingFunction": "linear",
+        }
+      }
+      topPosition={0}
+    >
+      <div
+        onClick={[Function]}
+        style={
+          Object {
+            "bottom": 50,
+            "cursor": "pointer",
+            "opacity": 0,
+            "position": "fixed",
+            "right": 30,
+            "transitionDelay": "0s",
+            "transitionDuration": "0.2s",
+            "transitionProperty": "opacity, visibility",
+            "transitionTimingFunction": "linear",
+            "visibility": "hidden",
+          }
+        }
+      >
+        <button
+          className="c-btn c-btn--primary c-scroll-btn"
+        >
+          <ChevronUpSVG>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-chevron-up fa-w-14"
+              data-icon="chevron-up"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"
+                fill="currentColor"
+              />
+            </svg>
+          </ChevronUpSVG>
+        </button>
+      </div>
+    </ScrollUp>
+  </ul>
+</BooksContainer>
+`;

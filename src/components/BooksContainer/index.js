@@ -30,7 +30,6 @@ const BooksContainer = () => {
           entries[0].isIntersecting &&
           startIndex + maxResults < totalResults
         ) {
-          console.log(startIndex + maxResults, totalResults);
           setStartIndex(startIndex + maxResults);
           fetchBooks(searchParams, startIndex, maxResults);
         }
@@ -51,38 +50,32 @@ const BooksContainer = () => {
   return (
     <ul className='l-book-container'>
       {books.length > 3 && <ViewTypeToggler />}
-      {
-        // eslint-disable-next-line array-callback-return
-        books.map((b, idx) => {
-          const imageLinks = b.volumeInfo.imageLinks
-            ? b.volumeInfo.imageLinks
-            : '';
-          if (books.length === idx + 1) {
-            return (
-              <BookItem
-                title={b.volumeInfo.title}
-                imageLinks={imageLinks}
-                description={b.volumeInfo.description}
-                key={b.id}
-                reference={lastBookElRef}
-                viewType={viewType}
-                infoLink={b.volumeInfo.infoLink}
-              />
-            );
-          } else {
-            return (
-              <BookItem
-                key={b.id}
-                title={b.volumeInfo.title}
-                imageLinks={imageLinks}
-                description={b.volumeInfo.description}
-                viewType={viewType}
-                infoLink={b.volumeInfo.infoLink}
-              />
-            );
-          }
-        })
-      }
+      {books.map((b, idx) => {
+        if (books.length === idx + 1) {
+          return (
+            <BookItem
+              title={b.volumeInfo.title}
+              imageLinks={b.volumeInfo.imageLinks}
+              description={b.volumeInfo.description}
+              key={b.id}
+              reference={lastBookElRef}
+              viewType={viewType}
+              infoLink={b.volumeInfo.infoLink}
+            />
+          );
+        } else {
+          return (
+            <BookItem
+              key={b.id}
+              title={b.volumeInfo.title}
+              imageLinks={b.volumeInfo.imageLinks}
+              description={b.volumeInfo.description}
+              viewType={viewType}
+              infoLink={b.volumeInfo.infoLink}
+            />
+          );
+        }
+      })}
       {loading && <Loader />}
       <ScrollToTop showUnder={160}>
         <button className='c-btn c-btn--primary c-scroll-btn'>

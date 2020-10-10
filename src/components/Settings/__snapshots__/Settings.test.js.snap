@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders Settings component 1`] = `
+<div
+  className="c-settings"
+>
+  <h3
+    className="c-settings__title"
+  >
+    Settings
+  </h3>
+  <form
+    className="c-settings-form"
+    onSubmit={[Function]}
+  >
+    <Memo(Input)
+      className="c-settings-form__input"
+      label="Max Results"
+      name="maxResults"
+      onChange={[Function]}
+      placeholder="Max Results"
+      type="number"
+      value={10}
+    />
+    <div
+      className="c-settings-form__btn-box"
+    >
+      <button
+        className="c-btn c-btn--primary c-settings-form__btn"
+      >
+        Apply
+      </button>
+      <button
+        className="c-btn c-btn--secondary c-settings-form__btn"
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+`;

@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders SearchFrom component 1`] = `
+<form
+  className="c-search-form"
+  onSubmit={[Function]}
+>
+  <Memo(Input)
+    className="c-search-form__input"
+    name="query"
+    onChange={[Function]}
+    placeholder="Your search query"
+    value=""
+  />
+  <Memo(Input)
+    className="c-search-form__input"
+    name="inauthor"
+    onChange={[Function]}
+    placeholder="Author"
+    value=""
+  />
+  <Memo(Input)
+    className="c-search-form__input"
+    name="inpublisher"
+    onChange={[Function]}
+    placeholder="Publisher"
+    value=""
+  />
+  <Memo(Input)
+    className="c-search-form__input"
+    name="isbn"
+    onChange={[Function]}
+    placeholder="ISBN"
+    type="number"
+    value=""
+  />
+  <button
+    className="c-btn c-search-form__btn"
+  >
+    Search
+  </button>
+</form>
+`;

@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 
 const Settings = ({ setShowSettings }) => {
   // Get data from global app state
-  const { showAlert } = useContext(AppContext);
-  const { maxResults, setMaxResults } = useContext(AppContext);
+  const { maxResults, setMaxResults, showAlert } = useContext(AppContext);
   // Use local state for form handling
   const [value, setValue] = useState(maxResults);
   // Handle onSubmit event
@@ -27,7 +26,6 @@ const Settings = ({ setShowSettings }) => {
   return (
     <div className='c-settings'>
       <h3 className='c-settings__title'>Settings</h3>
-
       <form className='c-settings-form' onSubmit={handlerOnSubmit}>
         <Input
           className='c-settings-form__input'
@@ -55,7 +53,7 @@ const Settings = ({ setShowSettings }) => {
 };
 
 Settings.propTypes = {
-  setShowSettings: PropTypes.func.isRequired,
+  setShowSettings: PropTypes.func,
 };
 
 export default Settings;

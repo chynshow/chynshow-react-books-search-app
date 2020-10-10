@@ -62,10 +62,11 @@ body {
   padding: 1rem;
   border-radius: 3px;
   font-family: inherit;
+  font-size: inherit;
 }
 
 .c-input::placeholder {
-  font-family: var(--font-family), serif;
+  font-family: var(--font-family);
   font-size: var(--font-size-placeholder);
 }
 
@@ -80,6 +81,7 @@ body {
   cursor: pointer;
   font-family: inherit;
   transition: 0.2s ease;
+  font-size: inherit;
 }
 
 .c-btn--primary {
@@ -237,14 +239,17 @@ body {
   animation: scale 1500ms linear both;
   animation-delay: 0;
 }
+
 .c-search-form label:nth-child(2) {
   animation: scale 1500ms linear both;
   animation-delay: 0.1s;
 }
+
 .c-search-form label:nth-child(3) {
   animation: scale 1500ms linear both;
   animation-delay: 0.2s;
 }
+
 .c-search-form label:nth-child(4) {
   animation: scale 1500ms linear both;
   animation-delay: 0.3s;
@@ -315,10 +320,12 @@ body {
   height: 20vh;
   padding: 1rem;
 }
+
 .c-book-item__title {
   text-align: center;
   padding: 1rem 0;
 }
+
 .c-book-item__description {
   padding: 1rem 0;
   text-align: justify;
@@ -442,13 +449,82 @@ body {
 }
 
 /* SCROLL BUTTON*/
-
 .c-scroll-btn {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
   margin-right: 1rem;
 }
+
 .c-scroll-btn svg {
   width: 1rem;
+}
+
+/* RWD :) */
+
+/* iPhone 6/7/8/ Plus*/
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 45%; /* 100 / 16 * 10  1rem = 10px */
+    overflow-x: hidden;
+  }
+
+  /* APP CONTAINER */
+  .l-app-container {
+    grid-template-columns: 5% 90% 5%;
+    grid-template-rows: 70vh min-content min-content;
+  }
+
+  /* MAIN TITLE */
+  .c-main-title {
+    padding: 2rem 0;
+    font-size: 4rem;
+  }
+
+  .l-search-bar-container {
+    justify-content: center;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  /* SEARCH FORM */
+  .c-search-form {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 60vw;
+  }
+
+  .c-search-form__input {
+    margin: 0.2rem 0;
+    width: 100%;
+    font-size: var(--font-size-sm);
+  }
+
+  .c-search-form__btn {
+    margin: 0.4rem 0;
+  }
+
+  .c-settings__btn {
+    display: none;
+  }
+
+  /* BOOKS CONTAINER */
+  .l-book-container {
+    padding: 2rem;
+  }
+
+  /* BOOK ITEM */
+  .c-book-item {
+    flex-basis: calc(100% - 1.6rem);
+  }
+
+  /* VIEW TYPE */
+  .c-view-type {
+    display: none;
+  }
+
+  /* SCROLL BUTTON*/
+  .c-scroll-btn {
+    margin-right: -1.5rem;
+  }
 }

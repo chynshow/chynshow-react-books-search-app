@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainTitle component should render MainTitle component 1`] = `
+<h3
+  className="c-main-title"
+>
+  Which book do you want to read next?
+</h3>
+`;

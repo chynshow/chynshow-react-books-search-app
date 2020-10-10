@@ -18,7 +18,6 @@ export default (state, { type, payload }) => {
         ...state,
         loading: true,
       };
-
     case FETCH_BOOKS_SUCCESS:
       return {
         ...state,
@@ -43,13 +42,11 @@ export default (state, { type, payload }) => {
         ...state,
         startIndex: payload,
       };
-
     case SET_SEARCH_PARAMS:
       return {
         ...state,
         searchParams: payload,
       };
-
     case CLEAR_STATE:
       return {
         ...state,
@@ -57,6 +54,7 @@ export default (state, { type, payload }) => {
         totalResults: 0,
         startIndex: 0,
         loading: false,
+        viewType: 'four',
         searchParams: {
           query: '',
           inauthor: '',
@@ -64,7 +62,6 @@ export default (state, { type, payload }) => {
           isbn: '',
         },
       };
-
     case SET_VIEW:
       return {
         ...state,
@@ -76,7 +73,6 @@ export default (state, { type, payload }) => {
         alertCondition: payload.alertCondition,
         alertMessage: payload.alertMessage,
       };
-
     case HIDE_ALERT:
       return {
         ...state,

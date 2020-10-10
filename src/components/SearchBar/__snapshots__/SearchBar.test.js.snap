@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders SearchBar component 1`] = `
+<div
+  className="l-search-bar"
+>
+  <MainTitle />
+  <div
+    className="l-search-bar-container"
+  >
+    <SettingsContainer />
+    <SearchForm />
+  </div>
+  <Memo(Overlay)
+    background="#202124"
+    opacity=".3"
+  />
+</div>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders TotalResult component 1`] = `
+<Fragment>
+  <div
+    className="c-total-result"
+  >
+    <span
+      className="c-total-result__text"
+    >
+      You don't have any results yet!
+    </span>
+  </div>
+</Fragment>
+`;

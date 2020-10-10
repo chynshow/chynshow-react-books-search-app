@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Input component should renders Input component with props 1`] = `
+<label>
+  Label
+  <input
+    className="c-input "
+    name="Name"
+    onChange={[Function]}
+    placeholder="Placeholder"
+    type="Type"
+  />
+</label>
+`;
+
+exports[`render Input component should renders Input component without props 1`] = `
+<label>
+  <input
+    className="c-input "
+    type="text"
+  />
+</label>
+`;

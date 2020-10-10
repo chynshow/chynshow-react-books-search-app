@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders ViewTypeToggler component 1`] = `
+<div
+  className="c-view-type"
+>
+  <button
+    className="c-btn c-btn--primary c-view-type__btn"
+    onClick={[Function]}
+  >
+    <ThListSVG />
+  </button>
+  <button
+    className="c-btn c-btn--primary c-view-type__btn"
+    onClick={[Function]}
+  >
+    <ThSVG />
+  </button>
+</div>
+`;

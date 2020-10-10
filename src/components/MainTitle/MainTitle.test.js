@@ -2,6 +2,9 @@ import React from 'react';
 import MainTitle from './';
 import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-  shallow(<MainTitle />);
+describe('MainTitle component', () => {
+  it('should render MainTitle component', () => {
+    const c = shallow(<MainTitle />);
+    expect(c).toMatchSnapshot();
+  });
 });

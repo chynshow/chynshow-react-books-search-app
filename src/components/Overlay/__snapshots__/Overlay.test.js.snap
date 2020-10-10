@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should renders Overlay component with props 1`] = `
+<div
+  className="c-overlay"
+  style={
+    Object {
+      "background": "#fff",
+      "opacity": "1",
+      "zIndex": "0",
+    }
+  }
+/>
+`;
+
+exports[`should renders Overlay component without props 1`] = `
+<div
+  className="c-overlay"
+  style={
+    Object {
+      "background": "#fff",
+      "opacity": "0",
+      "zIndex": "0",
+    }
+  }
+/>
+`;

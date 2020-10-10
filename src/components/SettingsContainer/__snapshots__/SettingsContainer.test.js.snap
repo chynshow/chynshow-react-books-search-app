@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render SettingsContainer component should renders SettingsContainer component 1`] = `
+<Fragment>
+  <button
+    className="c-btn c-settings__btn"
+    onClick={[Function]}
+  >
+    <CogSVG />
+  </button>
+</Fragment>
+`;

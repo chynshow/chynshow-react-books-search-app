@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render App component 1`] = `
+<div
+  className="l-app-container"
+>
+  <Alert />
+  <SearchBar />
+  <TotalResult />
+  <BooksContainer />
+</div>
+`;

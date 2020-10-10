@@ -40,4 +40,15 @@ BookItem.propTypes = {
   infoLink: PropTypes.string.isRequired,
 };
 
+BookItem.defaultProps = {
+  title: 'Title',
+  imageLinks: {
+    mallThumbnail: '#',
+    thumbnail: '#',
+  },
+  description: 'Description unavailable',
+  viewType: 'four',
+  infoLink: '#',
+};
+
 export default React.memo(BookItem);

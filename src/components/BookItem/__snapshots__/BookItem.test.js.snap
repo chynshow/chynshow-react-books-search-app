@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render BookItem component should renders BookItem component with props 1`] = `
+<li
+  className="c-book-item c-book-item--four"
+>
+  <img
+    alt="Book cover not found"
+    className="c-book-item__img"
+    src="#"
+  />
+  <h3
+    className="c-book-item__title"
+  >
+    Title
+  </h3>
+  <p
+    className="c-book-item__description"
+  >
+    Description...
+  </p>
+  <a
+    href="#"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <button
+      className="c-btn c-btn--primary c-book-item__btn"
+    >
+      Details
+    </button>
+  </a>
+</li>
+`;
+
+exports[`render BookItem component should renders BookItem component without props 1`] = `
+<li
+  className="c-book-item c-book-item--four"
+>
+  <img
+    alt="Book cover not found"
+    className="c-book-item__img"
+    src="#"
+  />
+  <h3
+    className="c-book-item__title"
+  >
+    Title
+  </h3>
+  <p
+    className="c-book-item__description"
+  >
+    Description unavailable...
+  </p>
+  <a
+    href="#"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <button
+      className="c-btn c-btn--primary c-book-item__btn"
+    >
+      Details
+    </button>
+  </a>
+</li>
+`;

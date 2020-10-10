@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Input = ({
   name,
   placeholder,
-  type = 'text',
+  type,
   onChange,
   className,
   value,
@@ -31,6 +31,10 @@ Input.propTypes = {
   type: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string,
+};
+
+Input.defaultProps = {
+  type: 'text',
 };
 
 export default React.memo(Input);
