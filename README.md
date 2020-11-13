@@ -1,6 +1,6 @@
 ## Search books 
 
-Single page application created by React.
+Single page application built on the React.
 
 ## Description
 
