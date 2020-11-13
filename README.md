@@ -23,7 +23,7 @@ The project is designed to demonstrate knowledge and practical skills about Java
 
 ### Technologies
 
-#### Frontend 
+#### Frontend (hosted by "www.netlify.com")
 
 - React
 - Axios
