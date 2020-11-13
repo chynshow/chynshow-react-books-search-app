@@ -39,7 +39,7 @@ The project is designed to demonstrate knowledge and practical skills about Java
 - Search for a book by author, ISBN, publisher
 - Set the number of books for one request
 - Customize book display styles on the client
-- Downloading new books by scrolling the page
+- Loading new books by scrolling the page
 
 ## Getting started
 
